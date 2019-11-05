@@ -1,3 +1,11 @@
+## kobo build instructions:
+
+```
+./configure --prefix=/usr --host=arm-linux --enable-releasemode --enable-tempstore CPPFLAGS="-DSQLITE_HAS_CODEC -DSQLITE_OMIT_LOAD_EXTENSION -DSQLITE_OMIT_COMPLETE -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_RTREE -DSQLITE_TEMP_STORE=2 -I/chroot/include -I/chroot/usr/include -I/chroot/usr/include/openssl" LDFLAGS="-L/chroot/lib -L/chroot/usr/lib" --disable-static --enable-shared
+make -j8
+make DESTDIR=/chroot install
+```
+
 ## SQLCipher
 
 SQLCipher is an SQLite extension that provides transparent 256-bit AES encryption of 
